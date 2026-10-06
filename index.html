@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="brand">
+    <h1>
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" stroke-linecap="round"/></svg>
+      SMART <span>CALCULATOR</span>
+    </h1>
+    <p>Calculate smarter. Work faster.</p>
+    <div class="brand-line"></div>
+  </header>
+
+  <!-- Calculator -->
+  <main class="calculator" id="calculator">
+
+    <!-- Display -->
+    <section class="display" aria-label="Calculator display">
+      <div class="display-tools">
+        <button class="icon-btn" id="historyToggle" aria-label="Open calculation history" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>
+        </button>
+        <button class="icon-btn" id="copyBtn" aria-label="Copy result">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>
+        </button>
+      </div>
+      <div class="expression" id="expression" aria-live="off"></div>
+      <output class="result" id="result" aria-live="polite">0</output>
+    </section>
+
+    <!-- Keypad -->
+    <section class="keypad" aria-label="Calculator keypad">
+      <button class="btn ac" data-action="clear" data-key="Escape" aria-label="All clear">AC</button>
+      <button class="btn del" data-action="delete" data-key="Backspace" aria-label="Delete">DEL</button>
+      <button class="btn op" data-action="percent" data-key="%" aria-label="Percent">%</button>
+      <button class="btn op" data-action="operator" data-value="/" data-key="/" aria-label="Divide">÷</button>
+
+      <button class="btn" data-action="digit" data-value="7" data-key="7">7</button>
+      <button class="btn" data-action="digit" data-value="8" data-key="8">8</button>
+      <button class="btn" data-action="digit" data-value="9" data-key="9">9</button>
+      <button class="btn op" data-action="operator" data-value="*" data-key="*" aria-label="Multiply">×</button>
+
+      <button class="btn" data-action="digit" data-value="4" data-key="4">4</button>
+      <button class="btn" data-action="digit" data-value="5" data-key="5">5</button>
+      <button class="btn" data-action="digit" data-value="6" data-key="6">6</button>
+      <button class="btn op" data-action="operator" data-value="-" data-key="-" aria-label="Subtract">−</button>
+
+      <button class="btn" data-action="digit" data-value="1" data-key="1">1</button>
+      <button class="btn" data-action="digit" data-value="2" data-key="2">2</button>
+      <button class="btn" data-action="digit" data-value="3" data-key="3">3</button>
+      <button class="btn op" data-action="operator" data-value="+" data-key="+" aria-label="Add">+</button>
+
+      <button class="btn" data-action="negate" aria-label="Toggle positive or negative">+/−</button>
+      <button class="btn" data-action="digit" data-value="0" data-key="0">0</button>
+      <button class="btn" data-action="decimal" data-key="." aria-label="Decimal point">.</button>
+      <button class="btn eq" data-action="equals" data-key="Enter" aria-label="Equals">=</button>
+    </section>
+
+    <!-- History -->
+    <aside class="history" id="historyPanel" aria-label="Calculation history" aria-hidden="true">
+      <div class="history-head">
+        <div>
+          <h2>Calculation History</h2>
+          <p>Your recent calculations</p>
+        </div>
+        <button class="icon-btn" id="historyClose" aria-label="Close history">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <ul class="history-list" id="historyList"></ul>
+      <button class="clear-history" id="clearHistory">Clear History</button>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="footer">Designed &amp; Developed by <strong>Bisma Naz</strong> • CodeAlpha Internship</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
